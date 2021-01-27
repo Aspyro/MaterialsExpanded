@@ -1,6 +1,7 @@
 package dev.advaluti.matex;
 
-import dev.advaluti.matex.setup.*;
+import dev.advaluti.matex.util.*;
+import dev.advaluti.matex.world.gen.TreeGenerator;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
@@ -14,15 +15,16 @@ public class MatEx {
     //private static final Logger LOGGER = LogManager.getLogger();
 
     public MatEx() {
+        // Register the setup method for mod loading
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(ModSetup::init);
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(ClientSetup::init);
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(Registration::modSetup);
+
         // Load the config file
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ConfigGeneral.commonGeneral);
 
         // Register items/blocks
         Registration.init();
 
-        // Register the setup method for mod loading
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(ModSetup::init);
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(ClientSetup::init);
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(Registration::modSetup);
     }
 }

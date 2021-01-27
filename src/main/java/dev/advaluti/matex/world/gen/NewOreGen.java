@@ -1,8 +1,8 @@
-package dev.advaluti.matex.world;
+package dev.advaluti.matex.world.gen;
 
 import dev.advaluti.matex.MatEx;
-import dev.advaluti.matex.setup.ConfigGeneral;
-import dev.advaluti.matex.setup.Registration;
+import dev.advaluti.matex.util.ConfigGeneral;
+import dev.advaluti.matex.util.Registration;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.WorldGenRegistries;

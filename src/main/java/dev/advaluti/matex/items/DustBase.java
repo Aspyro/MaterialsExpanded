@@ -1,6 +1,6 @@
 package dev.advaluti.matex.items;
 
-import dev.advaluti.matex.setup.ModSetup;
+import dev.advaluti.matex.util.ModSetup;
 import net.minecraft.item.Item;
 
 public class DustBase extends Item {

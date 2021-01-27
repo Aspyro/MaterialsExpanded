@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_column",
+  "textures": {
+    "end": "matex:block/rubber_log_top",
+    "side": "matex:block/rubber_log"
+  }
+}

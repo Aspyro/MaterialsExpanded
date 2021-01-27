@@ -1,9 +1,7 @@
 package dev.advaluti.matex.items;
 
-import dev.advaluti.matex.setup.ModSetup;
+import dev.advaluti.matex.util.ModSetup;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.extensions.IForgeItem;
 
 public class IngotBase extends Item implements IForgeItem {

@@ -1,7 +1,7 @@
 package dev.advaluti.matex.materials;
 
 import dev.advaluti.matex.MatEx;
-import dev.advaluti.matex.setup.Registration;
+import dev.advaluti.matex.util.Registration;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.IArmorMaterial;
 import net.minecraft.item.crafting.Ingredient;

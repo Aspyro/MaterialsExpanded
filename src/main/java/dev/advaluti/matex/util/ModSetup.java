@@ -1,5 +1,6 @@
-package dev.advaluti.matex.setup;
+package dev.advaluti.matex.util;
 
+import dev.advaluti.matex.world.gen.TreeGenerator;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -23,7 +24,8 @@ public class ModSetup {
     };
 
     public static void init(final FMLCommonSetupEvent event) {
-
+        //Generates trees
+        //TreeGenerator.init();
     }
 
     @SubscribeEvent

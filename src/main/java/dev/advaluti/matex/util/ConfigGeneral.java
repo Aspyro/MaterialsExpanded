@@ -1,4 +1,4 @@
-package dev.advaluti.matex.setup;
+package dev.advaluti.matex.util;
 
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.eventbus.api.SubscribeEvent;

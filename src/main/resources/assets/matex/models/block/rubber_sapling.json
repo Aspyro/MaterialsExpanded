@@ -1,0 +1,6 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "matex:block/rubber_sapling"
+  }
+}

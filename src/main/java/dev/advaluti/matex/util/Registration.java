@@ -1,11 +1,16 @@
-package dev.advaluti.matex.setup;
+package dev.advaluti.matex.util;
 
 import dev.advaluti.matex.blocks.*;
+import dev.advaluti.matex.blocks.ores.*;
 import dev.advaluti.matex.items.*;
 import dev.advaluti.matex.materials.BaseArmorMaterial;
 import dev.advaluti.matex.materials.BaseToolMaterial;
-import dev.advaluti.matex.world.*;
+import dev.advaluti.matex.world.feature.RubberTreeFeature;
+import dev.advaluti.matex.world.gen.NewOreGen;
+import dev.advaluti.matex.world.gen.TreeGenerator;
+import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.*;
 import net.minecraftforge.fml.RegistryObject;
@@ -15,8 +20,6 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
-import java.util.ArrayList;
-
 import static dev.advaluti.matex.MatEx.MOD_ID;
 
 @Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD)
@@ -24,6 +27,7 @@ public class Registration {
 
     private static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, MOD_ID);
     private static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MOD_ID);
+    private static final DeferredRegister<Block> CUSTOM_BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, MOD_ID);
 
     public static String[] toolMaterials = {"copper", "tin", "lead", "aluminium", "silver", "osmium", "zinc", "tungsten", "platinum", "nickel", "titanium", "steel", "bronze", "electrum", "cupronickel",  "brass", "aluminiumbrass", "invar"};
     public static String[] armorMaterials = {"copper", "tin", "lead", "aluminium", "silver", "osmium", "zinc", "tungsten", "platinum", "nickel", "titanium", "steel", "bronze", "electrum", "cupronickel",  "brass", "aluminiumbrass", "invar"};
@@ -67,6 +71,7 @@ public class Registration {
 
         BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
         ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
+
 
     }
 
@@ -364,8 +369,22 @@ public class Registration {
     public static final RegistryObject<MiscItemBase> ITEMSILICON = ITEMS.register("itemsilicon", MiscItemBase::new);
     public static final RegistryObject<MiscItemBase> ITEMFAKESLIME = ITEMS.register("itemfakeslime", MiscItemBase::new);
 
+    //RUBBER TREE
+    public static final RegistryObject<RubberLeaves> RUBBERLEAVES = BLOCKS.register("rubber_leaves", RubberLeaves::new);
+    public static final RegistryObject<Item> RUBBERLEAVES_ITEM = ITEMS.register("rubber_leaves", () -> new BlockItem(RUBBERLEAVES.get(), new Item.Properties().group(ModSetup.MATEX_GROUP)));
+
+    public static final RegistryObject<RubberLog> RUBBERLOG = BLOCKS.register("rubber_log", RubberLog::new);
+    public static final RegistryObject<Item> RUBBERLOG_ITEM = ITEMS.register("rubber_log", () -> new BlockItem(RUBBERLOG.get(), new Item.Properties().group(ModSetup.MATEX_GROUP)));
+
+    public static final RegistryObject<RubberPlanks> RUBBERPLANKS = BLOCKS.register("rubber_planks", RubberPlanks::new);
+    public static final RegistryObject<Item> RUBBERPLANKS_ITEM = ITEMS.register("rubber_planks", () -> new BlockItem(RUBBERPLANKS.get(), new Item.Properties().group(ModSetup.MATEX_GROUP)));
+
+    public static final RegistryObject<RubberSapling> RUBBERSAPLING = BLOCKS.register("rubber_sapling", ()-> new RubberSapling(() -> new RubberTreeFeature(), AbstractBlock.Properties.from(Blocks.OAK_SAPLING)));
+    public static final RegistryObject<Item> RUBBERSAPLING_ITEM = ITEMS.register("rubber_sapling", () -> new BlockItem(RUBBERSAPLING.get(), new Item.Properties().group(ModSetup.MATEX_GROUP)));
+
     //ORE GEN
     public static void modSetup(final FMLCommonSetupEvent event) {
         NewOreGen.registerOres();
+        TreeGenerator.setup();
     }
 }

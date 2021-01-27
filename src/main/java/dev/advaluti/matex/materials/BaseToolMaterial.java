@@ -1,6 +1,6 @@
 package dev.advaluti.matex.materials;
 
-import dev.advaluti.matex.setup.Registration;
+import dev.advaluti.matex.util.Registration;
 import net.minecraft.item.IItemTier;
 import net.minecraft.item.crafting.Ingredient;
 
